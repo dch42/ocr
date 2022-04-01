@@ -39,12 +39,15 @@ def write_out(text):
     with open(out_file, 'a') as out:
         out.write(text)
 
-for arg in args.input:
-    if arg.endswith('.pdf'):
-        pdf_images = pdf_to_image(arg)
-        for image in pdf_images:
-            text = convert_to_text(image)
+############################################################
+
+if __name__ == "__main__":
+    for arg in args.input:
+        if arg.endswith('.pdf'):
+            pdf_images = pdf_to_image(arg)
+            for image in pdf_images:
+                text = convert_to_text(image)
+                write_out(text)
+        else:
+            text = convert_to_text(arg)
             write_out(text)
-    else:
-        text = convert_to_text(arg)
-        write_out(text)
