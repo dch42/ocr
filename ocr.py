@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert images to text for easier processing using OCR"""
+"""Convert image and pdf files to text for easier processing using OCR"""
 
 import argparse
 from PIL import Image
@@ -8,7 +8,7 @@ import pytesseract
 
 # define and parse args
 parser = argparse.ArgumentParser(
-    description="Convert images to text for easier processing using OCR")
+    description="Convert image and pdf files to text for easier processing using OCR")
 parser.add_argument(
     "-i", "--input", type=str, nargs='+', required='True', help='input file(s) to operate on')
 parser.add_argument(
@@ -34,6 +34,7 @@ def convert_to_text(image):
     return text
 
 def write_out(text):
+    """Export scraped text to file"""
     out_file = args.output
     with open(out_file, 'w') as out:
         out.write(text)
