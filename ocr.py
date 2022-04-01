@@ -45,13 +45,16 @@ def write_out(text):
 ############################################################
 
 if __name__ == "__main__":
-    print
     for arg in args.input:
+        print(f"Converting {arg} to text...")
         if arg.endswith('.pdf'):
             pdf_images = pdf_to_image(arg)
             for image in pdf_images:
                 text = convert_to_text(image)
                 write_out(text)
+            print(f"Text written to {args.output}.")
         else:
             text = convert_to_text(arg)
             write_out(text)
+            print(f"Text written to {args.output}.")
+
