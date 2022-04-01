@@ -36,7 +36,7 @@ def convert_to_text(image):
 def write_out(text):
     """Export scraped text to file"""
     out_file = args.output
-    with open(out_file, 'w') as out:
+    with open(out_file, 'a') as out:
         out.write(text)
 
 for arg in args.input:
