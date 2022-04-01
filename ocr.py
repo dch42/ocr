@@ -5,6 +5,7 @@ import argparse
 from PIL import Image
 from pdf2image import convert_from_path
 import pytesseract
+import pyfiglet
 
 # define and parse args
 parser = argparse.ArgumentParser(
@@ -13,6 +14,8 @@ parser.add_argument(
     "-i", "--input", type=str, nargs='+', required='True', help='input file(s) to operate on')
 parser.add_argument(
     "-o", "--output", type=str, required='True', help='output file for converted text')
+parser.add_argument(
+    "-p", "--print", help='print converted text to terminal', action="store_true")
 args = parser.parse_args()
 
 def pdf_to_image(pdf):
@@ -30,7 +33,8 @@ def pdf_to_image(pdf):
 def convert_to_text(image):
     """Use OCR to scrape text from image"""
     text = pytesseract.image_to_string(Image.open(image))
-    print(text)
+    if args.print:
+        print(text)
     return text
 
 def write_out(text):
