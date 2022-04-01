@@ -5,7 +5,6 @@ import argparse
 from PIL import Image
 from pdf2image import convert_from_path
 import pytesseract
-import pyfiglet
 
 # define and parse args
 parser = argparse.ArgumentParser(
@@ -46,6 +45,7 @@ def write_out(text):
 ############################################################
 
 if __name__ == "__main__":
+    print
     for arg in args.input:
         if arg.endswith('.pdf'):
             pdf_images = pdf_to_image(arg)
