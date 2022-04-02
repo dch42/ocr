@@ -12,3 +12,5 @@ Users running MacOS may also need to install [poppler](https://formulae.brew.sh/
     - input file(s) to operate on
 - `-o, --output`
     - output file for converted text
+- `-p, --print`
+    - prints converted text result to terminal
